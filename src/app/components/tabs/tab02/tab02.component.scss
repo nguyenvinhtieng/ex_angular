@@ -1,0 +1,8 @@
+.c-tab {
+  &__item {
+    &.is-active {
+      transform: translateY(-20px);
+      background-color: transparent;
+    }
+  }
+}

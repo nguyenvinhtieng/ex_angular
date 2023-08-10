@@ -1,1 +1,377 @@
-/* You can add global styles to this file, and also import other style files */
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+// ICONS
+// @import '~@mdi/font/css/materialdesignicons.min';
+
+
+// MIXINS
+@mixin pc {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+
+// RESET CSS
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+body {
+  min-height: 100vh;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'Poppins', sans-serif;
+  ;
+}
+
+
+// COMMON PARTS
+.l-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+// BUTTON
+.c-btn {
+  color: #333;
+  &-01 {
+    padding: 10px 42px 10px 20px;
+    position: relative;
+    background-color: #3588e1;
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    text-decoration: none;
+    &.not-icon {
+      padding: 10px 20px;
+    }
+    &:hover {
+      background-color: rgba(46, 122, 209, 0.8);
+      .ico-plus {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+    @include sp {
+      padding: 5px 30px 5px 13px;
+    }
+  }
+  &-02 {
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    background-color: #17b331;
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.2s linear;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(23, 179, 49, 0.8);
+      .ico-plus {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+  &-03 {
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    background-color: #f33030;
+    border-radius: 5px;
+    color: #fff;
+    transition: all 0.2s linear;
+    &:hover {
+      background-color: rgba(243, 48, 48, 0.8);
+      .ico-plus {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+  &-gray {
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    background-color: #e3e3e3;
+    border-radius: 5px;
+    color: #333;
+    transition: all 0.2s linear;
+    &:hover {
+      background-color: #d1d1d1;
+    }
+  }
+  &__txt {
+    font-size: 14px;
+  }
+  &__icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-50%);
+    transition: all 0.2s linear;
+    &.ico-plus {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        bottom: 0;
+        width: 2px;
+        background-color: #fff;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #fff;
+        transform: translateY(-50%);
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+// TABLE
+.c-table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  &__inner {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  &__head {
+
+  }
+  &__body {
+
+  }
+  &__row {
+
+  }
+  &__empty {
+    text-align: center;
+    font-size: 14px;
+  }
+  &__image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    &.small {
+      width: 30px;
+      height: 30px;
+    }
+    &.no-border {
+      border-radius: 0;
+    }
+    img {
+      height: 100%;
+    }
+  }
+  &__col-flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+  }
+  &__btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 20px;
+    background-color: #3588e1;
+    color: #fff;
+  }
+  tr {
+    &:nth-child(even) {
+      background-color: #f3f3f3;
+    }
+  }
+  td {
+    padding: 15px 20px;
+  }
+}
+
+
+.c-center {
+  text-align: center !important;
+}
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// TABS
+.c-tab {
+  background-color: #fff;
+  &__list {
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  &__item {
+    flex: 1;
+    padding: 17px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include sp {
+      padding: 13px;
+    }
+    &:hover {
+      background-color: rgba(176, 204, 255, 0.1);
+    }
+  }
+  &__ico {
+    color: rgb(117, 115, 115);
+  }
+  &__icon-active {
+    color: rgb(18, 95, 219);
+  }
+  &__bar {
+    position: absolute;
+    top: 0;
+    height: 3px;
+    width: calc((100% - 40px) / 6);
+    left: 20px;
+    background-color: rgb(63, 63, 63);
+    transition: all 0.2s linear;
+  }
+  &__cir {
+    position: absolute;
+    top: -30%;
+    height: 30px;
+    border-radius: 150px 150px 0 0;
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+    transition: all 0.2s linear;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: rgb(231, 243, 255);
+      bottom: 12px;
+      left: -4px;
+      border-bottom-right-radius: 20px;
+      box-shadow: 0 4px 0 0 #fff;
+      @include sp {
+        bottom: 15px;
+        left: calc(-20 / 375 * 100%);
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: rgb(231, 243, 255);
+      bottom: 12px;
+      right: -4px;
+      border-bottom-left-radius: 20px;
+      box-shadow: 0 4px 0 0 #fff;
+      @include sp {
+        bottom: 15px;
+        right: calc(-20 / 375 * 100%);
+      }
+    }
+  }
+  &__bubble {
+    position: absolute;
+    top: -50%;
+    height: 60px;
+    background-color: #fff;
+    // background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    z-index: 2;
+    transition: all 0.2s linear;
+    border: 6px solid rgb(231, 243, 255);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 47%;
+      left: -22px;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -10px 0 0 rgb(231, 243, 255);
+      @include sp {
+        top: 50%;
+        left: -22px;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 47%;
+      right: -22px;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border-top-left-radius: 20px;
+      box-shadow: 0 -10px 0 0 rgb(231, 243, 255);
+      @include sp {
+        top: 50%;
+        right: -22px;
+      }
+    }
+  }
+}

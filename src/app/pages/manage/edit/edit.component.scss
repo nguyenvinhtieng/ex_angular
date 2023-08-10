@@ -1,0 +1,130 @@
+.pokemon-create {
+  margin-top: 20px;
+  &__ttl {
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
+
+.c-form {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  &__bottom {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.c-input {
+  & + .c-input {
+    margin-top: 20px;
+  }
+  &__checkbox {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    input {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+    label {
+      cursor: pointer;
+    }
+  }
+  label {
+    color: #424242;
+    font-size: 14px;
+    &.required {
+      &::after {
+        content: '*';
+        color: red;
+      }
+    }
+  }
+  input, select {
+    margin-top: 5px;
+    padding: 10px 20px;
+    border: 1px solid #cbcbcb;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    &.ng-touched.ng-invalid {
+      border-color: rgb(241, 86, 86);
+    }
+    &:focus {
+      border-color: rgb(36, 149, 255);
+    }
+  }
+  .c-input__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    input, select {
+      flex: 1;
+    }
+  }
+}
+
+
+.c-image {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+  position: relative;
+  &:hover {
+    .c-image__del {
+      opacity: 1;
+    }
+  }
+  &__del {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #7a7a7a;
+    width: 25px;
+    height: 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0;
+    &:hover {
+      background-color: #262626;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 80%;
+      height: 2px;
+      background-color: #fff;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 80%;
+      height: 2px;
+      background-color: #fff;
+    }
+  }
+  img {
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+}

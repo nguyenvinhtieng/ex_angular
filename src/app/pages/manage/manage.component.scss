@@ -1,0 +1,21 @@
+.manage-pokemon {
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 17px;
+    font-weight: 500;
+    width: fit-content;
+    margin-right: 20px;
+  }
+  &__table {
+    margin-top: 20px;
+  }
+}
+
+
+.c-txt {
+  line-height: 1.5;
+}

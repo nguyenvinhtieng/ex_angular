@@ -1,0 +1,50 @@
+<div class="pokemon-create">
+  <div class="l-container" *ngIf="pokemonForm">
+    <h1 class="pokemon-create__ttl">Let's create your pokemon</h1>
+    <form action="" class="c-form" [formGroup]="pokemonForm" (submit)="onSubmit()">
+      <div class="c-input">
+        <label for="pokemon-name" class="required">Pokemon Name</label>
+        <input id="pokemon-name" type="text" formControlName="name" placeholder="Enter your pokemon name...">
+      </div>
+      <div class="c-input">
+        <label for="" class="required">Values ( HP - Attack - Defense - Speed)</label>
+        <div class="c-input__flex">
+          <input type="number" min="0" max="500" formControlName="hp" placeholder="Hp">
+          <input type="number" min="0" max="500" formControlName="attack" placeholder="Attack">
+          <input type="number" min="0" max="500" formControlName="defense" placeholder="Defence">
+          <input type="number" min="0" max="500" formControlName="speed" placeholder="Speed">
+        </div>
+      </div>
+      <div class="c-input">
+        <label for="pokemon-image" class="required">Image</label>
+        <input #inputImage id="pokemon-image" (change)="onFileChanged($event)" type="file" accept="image/png, image/gif, image/jpeg">
+        <div class="c-image" *ngIf="pokemonInputImage">
+          <span class="c-image__del" (click)="deleteImage()"></span>
+          <img src="{{ pokemonInputImage }}" alt="Pokemon preview image">
+        </div>
+      </div>
+      <div class="c-input">
+        <label for="" class="">Types</label>
+        <div class="c-input__flex">
+          <select formControlName="type_1">
+            <option value=""><span>-- Select--</span></option>
+            <option *ngFor="let t of types" value="{{ t }}">{{ t }}</option>
+          </select>
+          <select  formControlName="type_2">
+            <option value=""><span>-- Select--</span></option>
+            <option *ngFor="let t of types" value="{{ t }}">{{ t }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="c-input__checkbox">
+        <input type="checkbox" id="is-legendary" formControlName="isLegendary">
+        <label for="is-legendary">Legendary pokemon</label>
+      </div>
+      <div class="c-form__bottom">
+        <button class="c-btn-01" type="submit">
+          <div class="c-btn__text">Start Generate pokemon</div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

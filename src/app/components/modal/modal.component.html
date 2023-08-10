@@ -1,0 +1,26 @@
+<div class="modal">
+  <div class="modal__header">
+    <h3 class="modal__ttl">{{title}}</h3>
+    <div class="modal__close" (click)="close()"></div>
+  </div>
+  <div class="modal__body">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal__fotter">
+    <button class="c-btn-gray" (click)="close()">
+      <div class="c-btn__txt">Close</div>
+    </button>
+    <ng-container *ngIf="text && !isDanger">
+      <button class="c-btn-01 not-icon" (click)="submit()">
+        <div class="c-btn__txt">{{text}}</div>
+      </button>
+    </ng-container>
+    <ng-container *ngIf="text && isDanger">
+      <button class="c-btn-03" (click)="submit()">
+        <div class="c-btn__txt">{{text}}</div>
+      </button>
+    </ng-container>
+  </div>
+</div>
+
+<div class="modal__backdrop" (click)="close()"></div>

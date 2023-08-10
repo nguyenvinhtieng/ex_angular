@@ -1,0 +1,16 @@
+
+.c-tab {
+  &__item {
+    &:hover {
+      background-color: transparent;
+    }
+    &.is-active {
+      transform: translateY(-30px);
+      background-color: transparent;
+      // @include
+      @media screen and (max-width: 768px) {
+        transform: translateY(-24px);
+      }
+    }
+  }
+}

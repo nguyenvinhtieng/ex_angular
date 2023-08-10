@@ -1,0 +1,78 @@
+<div class="manage-pokemon">
+  <div class="l-container">
+    <div class="manage-pokemon__head">
+      <h1 class="manage-pokemon__title">Manage your pokemon here</h1>
+      <a class="c-btn-01" routerLink="/manage/create">
+        <span class="c-btn__txt">Create new</span>
+        <span class="c-btn__icon ico-plus"></span>
+      </a>
+    </div>
+    <div class="manage-pokemon__table">
+      <div class="c-table">
+        <table class="c-table__inner">
+          <thead class="c-table__head">
+            <tr class="c-table__row">
+              <th>No.</th>
+              <th>Name</th>
+              <th>Image</th>
+              <th class="c-center">Types</th>
+              <th class="c-center">Legendary</th>
+              <th class="c-center">Action</th>
+            </tr>
+          </thead>
+          <tbody class="c-table__body">
+            <ng-container *ngIf="pokemonList.length > 0;else noPokemon">
+              <tr class="c-table__row" *ngFor="let pokemon of pokemonList">
+                <td>{{ pokemon.number }}</td>
+                <td>{{ pokemon.name }}</td>
+                <td>
+                  <div class="c-table__image">
+                    <img [src]="serverEnv + pokemon.image" alt="{{ pokemon.name }}" />
+                  </div>
+                </td>
+                <td>
+                  <div class="c-table__col-flex">
+                    <div class="c-table__image small" *ngIf="pokemon.type_1">
+                      <img [src]="'/assets/images/types/' + pokemon.type_1 + '.png'" alt="{{ pokemon.name + pokemon.type_1 }}" />
+                    </div>
+                    <div class="c-table__image small" *ngIf="pokemon.type_2">
+                      <img [src]="'/assets/images/types/' + pokemon.type_2 + '.png'" alt="{{ pokemon.name + pokemon.type_2 }}" />
+                    </div>
+                    <div class="c-table__image small" *ngIf="!pokemon.type_1 && !pokemon.type_2">
+                      <img [src]="'/assets/images/types/Unknow.png'" alt="{{ pokemon.name }}" />
+                    </div>
+                  </div>
+                </td>
+                <td align="center">
+                  <div class="c-table__image small no-border" *ngIf="pokemon.legendary">
+                    <img src="assets/images/legendary.png" alt="{{ pokemon.name + pokemon.type_1 }}" />
+                  </div>
+                </td>
+                <td>
+                  <div class="c-table__btns">
+                    <a class="c-btn-02" routerLink="/manage/edit/{{pokemon._id}}">
+                      <span class="c-btn__text">Edit</span>
+                    </a>
+                    <button class="c-btn-03" (click)="showConfirmDelete(modalConfirmDelete, pokemon._id)">
+                      <span class="c-btn__text">Delete</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+            <ng-template #noPokemon>
+              <tr class="c-table__row">
+                <td colspan="6" class="c-table__empty">No pokemon found</td>
+              </tr>
+            </ng-template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #modalConfirmDelete>
+  <p class="c-txt">Are you sure to want to delete this pokemon? this action cannot be reverted!</p>
+</ng-template>

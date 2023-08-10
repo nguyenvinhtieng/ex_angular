@@ -1,0 +1,9 @@
+
+<div class="c-tab" *ngIf="tabs">
+  <div class="c-tab__list" #tab01List>
+    <span class="c-tab__bar" [ngStyle]="{left: tabLeftPx }"></span>
+    <div class="c-tab__item" *ngFor="let tab of tabs; let idx = index" (click)="changeTabActive(idx)" [ngClass]="{'is-active': tabActive == idx}">
+      <mat-icon class="c-tab__ico" [ngClass]="{'c-tab__icon-active': tabActive == idx}">{{tab.icon}}</mat-icon>
+    </div>
+  </div>
+</div>

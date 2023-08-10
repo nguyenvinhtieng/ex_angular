@@ -1,0 +1,15 @@
+.tab-container {
+  width: min(100%, 400px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  background-color: rgb(231, 243, 255);
+  padding-top: 60px;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.c-tab-01 {
+  background-color: red;
+}
